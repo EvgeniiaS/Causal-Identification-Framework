@@ -1,11 +1,11 @@
 # Measurement Maturity in Marketing Analytics
-### *Why Before/After Lies, When Models Fail, and What BSTS+SC Actually Gives You*
+### *Why Before/After Lies, When Models Fail, and What BSTS + Synthetic Control Actually Gives You*
 
 ---
 
 ## Research Question
 
-What is the **incremental** revenue contribution of Paid Search campaigns during Black Friday 2025, above organic BF demand?
+What is the **incremental** revenue contribution of Paid Search campaigns during Black Friday (BF) 2025, above organic BF demand?
 
 ---
 
@@ -13,9 +13,9 @@ What is the **incremental** revenue contribution of Paid Search campaigns during
 
 | Metric | Value |
 |---|---|
-| PS BF lift observed vs Nov 1-26 | 126.7% (planted 150% — noise shrinks it) |
+| Paid Search (PS) BF lift observed vs Nov 1-26 | 126.7% (planted 150% — noise shrinks it) |
 | Organic donor lift avg | 55.0% (Organic 72.9%, Direct 54.2%, Referral 34.6%, Social 58.5%) |
-| **True paid increment** | **71.6% = $1,340/day** |
+| **True PS increment** | **71.6% = $1,340/day** |
 | Nov 1-26 baseline | $1,871/day |
 | Full pre-period mean (Jan 2024 – Nov 26) | $1,243/day |
 | BF window mean | $4,241/day |
@@ -34,7 +34,7 @@ This single trend shift exposes the failure mode of each method:
 | Level | Method | Estimate | Error | Why |
 |---|---|---|---|---|
 | 1 | Before/After (vs full pre) | $2,998/day | +2.2x | Trend + organic demand conflated |
-| 1 | Before/After (vs Nov base) | $2,370/day | +1.8x | Organic demand + paid conflated |
+| 1 | Before/After (vs Nov base) | $2,370/day | +1.8x | Organic demand + PS conflated |
 | 2 | BSTS (CausalImpact) | ~$2,300-2,500/day | +70-85% | Extrapolates flat pre-period, flat BF counterfactual |
 | 2 | Prophet | ~$2,300-2,500/day | +70-85% | Same failure mode |
 | 3 | BSTS+SC v01 (23 months) | ~$1,340/day | Near | SC absorbs trend; donors carry BF signal |
