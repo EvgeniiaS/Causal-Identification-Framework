@@ -1,0 +1,24 @@
+# Core data stack
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+scipy>=1.11.0
+
+# Time series models
+prophet>=1.1.4          # Facebook/Meta Prophet for notebook 02
+rpy2>=3.5.9             # Python-R bridge for CausalImpact (notebooks 02, 03)
+
+# Jupyter
+jupyter>=1.0.0
+jupyterlab>=4.0.0
+ipykernel>=6.0.0
+
+# R packages installed automatically on first notebook run:
+#   CausalImpact  — Google BSTS causal inference
+#   bsts          — Bayesian structural time series
+#   data.table    — fast data manipulation
+#   zoo           — time series objects
+#   scales        — plot formatting
+#
+# R itself must be installed separately:
+#   https://cran.r-project.org/bin/macosx/  (arm64 for Apple Silicon)
