@@ -1,11 +1,11 @@
 # Measurement Maturity in Marketing Analytics
-### *Why Before/After Lies, When Models Fail, and What BSTS + Synthetic Control Actually Gives You*
+### *Why Before/After Lies, When Models Fail, and What BSTS + Synthetic Control (SC) Actually Gives You*
 
 ---
 
 ## Research Question
 
-What is the **incremental** revenue contribution of Paid Search campaigns during Black Friday (BF) 2025, above organic BF demand?
+What is the **incremental** revenue contribution of Paid Search (PS) campaigns during Black Friday (BF) 2025, above organic BF demand?
 
 ---
 
@@ -13,9 +13,9 @@ What is the **incremental** revenue contribution of Paid Search campaigns during
 
 | Metric | Value |
 |---|---|
-| Paid Search (PS) BF lift observed vs Nov 1-26 | 126.7% (planted 150% — noise shrinks it) |
+| PS BF lift observed vs Nov 1-26 | 126.7% (planted 150% — noise shrinks it) |
 | Organic donor lift avg | 55.0% (Organic 72.9%, Direct 54.2%, Referral 34.6%, Social 58.5%) |
-| **True PS increment** | **71.6% = $1,340/day** |
+| **True paid increment** | **71.6% = $1,340/day** |
 | Nov 1-26 baseline | $1,871/day |
 | Full pre-period mean (Jan 2024 – Nov 26) | $1,243/day |
 | BF window mean | $4,241/day |
@@ -33,10 +33,11 @@ This single trend shift exposes the failure mode of each method:
 
 | Level | Method | Estimate | Error | Why |
 |---|---|---|---|---|
-| 1 | Before/After (vs full pre) | $2,998/day | +2.2x | Trend + organic demand conflated |
-| 1 | Before/After (vs Nov base) | $2,370/day | +1.8x | Organic demand + PS conflated |
+| 1 | Before/After (vs full pre) | $2,998/day | +2.2x | Trend + organic demand + paid conflated |
+| 1 | Before/After (vs Nov base) | $2,370/day | +1.8x | Organic demand + paid conflated |
 | 2 | BSTS (CausalImpact) | ~$2,300-2,500/day | +70-85% | Extrapolates flat pre-period, flat BF counterfactual |
 | 2 | Prophet | ~$2,300-2,500/day | +70-85% | Same failure mode |
+| 2.5 | Prophet + regressors | Better than Prophet | Moderate up | Linear coeff, no SC constraints |
 | 3 | BSTS+SC v01 (23 months) | ~$1,340/day | Near | SC absorbs trend; donors carry BF signal |
 | 3 | BSTS+SC v02 (6.9 months) | ~$1,340/day | Near | 6.9 months sufficient with good donors |
 | 4 | Randomized holdout | — | Minimum | Gold standard |
@@ -54,6 +55,14 @@ This single trend shift exposes the failure mode of each method:
 Both BSTS (with weekly + annual `bsts` state space) and Prophet (with `yearly_seasonality=True`)
 are properly configured. The flat counterfactual is not a configuration problem — it is a
 fundamental limitation of parametric seasonal models for short-duration events.
+
+**Level 2.5 — Prophet with regressors:** Prophet supports adding donor channels as
+regressors via `add_regressor()`. This is more principled than standalone Prophet —
+organic donor values in the post-period push the counterfactual up, partially capturing
+the BF organic demand spike. However it uses a static linear coefficient (no non-negativity
+or sum-to-1 constraints), lacks Bayesian variable selection, and answers
+'controlling for organic search, what is the PS lift?' rather than
+'what would PS have been on organic demand alone?' — a weaker incrementality claim.
 
 **Level 3 robustness:** SC donors (Organic Search, Direct, Referral, Social) all share the
 +0.4%/day trend shift. Their co-movement with PS in the SC pre-period (r=0.69-0.83) already
@@ -110,8 +119,3 @@ jupyter lab
 
 Run notebooks in order: `00` → `01` → `02` → `03` → `04`
 
-
-## Author
-
-Built as part of a practitioner portfolio in causal inference and marketing measurement.  
-Questions, issues, or methodological disagreements welcome via GitHub Issues.
