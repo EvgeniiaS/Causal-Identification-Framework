@@ -100,7 +100,7 @@ The result is something close to a trend-adjusted YoY — total BF performance a
 
 BSTS asks: *did revenue go up more than the model expected?* Still not the incrementality question.
 
-**Result: approximately 2,400 USD/day vs 1,340 USD/day true — 79% overstatement.**
+**Result: 2,348 USD/day vs 1,340 USD/day true — 75% overstatement.**
 
 ---
 
@@ -183,7 +183,7 @@ A point estimate alone is not an actionable causal estimate. The width of the cr
 |---|---|---|
 | Before/After | Did revenue go up? | +77% to +124% |
 | YoY | Did revenue go up more than last year? | +63% |
-| BSTS | Did revenue go up more than the model expected? | +79% |
+| BSTS | Did revenue go up more than the model expected? | +75% |
 | BSTS+SC | Did PS go up more than organic demand explains? | ~0% |
 
 The progression is not about sophistication. It is about asking a more precise question at each step. Each method answers a different question — and only the last one most closely approximates the incrementality question, while resting on assumptions that must be explicitly validated.
