@@ -98,7 +98,7 @@ This solves both problems simultaneously. The trend shift is absorbed automatica
 
 The gap between actual Paid Search and the SC counterfactual is the paid-specific contribution. Not total BF impact. Not revenue vs a seasonal baseline. Specifically: how much more did Paid Search generate than it would have earned on baseline spend riding the organic demand wave?
 
-On this dataset, both the 23-month and the 3-month pre-period versions produce estimates near the true 1,340 USD/day. The 3-month version is particularly notable — it uses only August through November 2025, with no prior year data at all, and still recovers the true paid increment. The key requirement is not a long history. It is strong co-movement between the treated channel and the donor channels during the pre-period.
+On this dataset, both the 23-month and the 7-month pre-period versions produce estimates near the true 1,340 USD/day. The 7-month version is particularly notable — it uses only May through November 2025, with no prior year data at all, and still recovers the true paid increment. The key requirement is not a long history. It is strong co-movement between the treated channel and the donor channels during the pre-period.
 
 BSTS+SC asks: *did Paid Search go up more than organic demand alone would explain?* That is the incrementality question.
 
