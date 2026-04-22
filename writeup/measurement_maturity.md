@@ -138,7 +138,7 @@ The methods are the same. The judgment calls in applying them to real data are h
 
 **BSTS implementation:** Google's CausalImpact R package. State space: local level + weekly seasonal (nseasons=7) + annual seasonal (nseasons=52, season.duration=7). Full pre-period Jan 2024–Nov 26, 2025 includes BF 2024.
 
-**SC implementation:** Organic demand channels passed as covariates to CausalImpact via `causal_impact_with_covariates()` wrapper (see `src/causal_impact_wrapper.R`). Spike-and-slab priors for donor selection. Pre-period MAPE used as model quality gate. Two pre-period lengths tested: 23 months (Jan 2024–Nov 2025) and 3 months (Aug–Nov 2025).
+**SC implementation:** Organic demand channels passed as covariates to CausalImpact via `causal_impact_with_covariates()` wrapper (see `src/causal_impact_wrapper.R`). Spike-and-slab priors for donor selection. Pre-period MAPE used as model quality gate. Two pre-period lengths tested: 23 months (Jan 2024–Nov 2025) and 7 months (May–Nov 2025).
 
 **Donor selection:** Email excluded — runs its own BF promotional campaigns and is not an organic demand proxy. Organic Search, Direct, Referral, Social included.
 
