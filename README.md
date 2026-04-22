@@ -25,7 +25,7 @@ This is not a Black Friday question. It is the standard campaign measurement que
 | Nov 1-26 baseline | 1,871 USD/day |
 | BF window mean | 4,241 USD/day |
 
-*Ground truth is defined as PS lift minus organic donor lift — structurally aligned with SC logic. See writeup for discussion of this caveat.*
+*Ground truth is defined as PS lift minus organic donor lift. This definition is aligned with SC logic and therefore favors donor-based methods; see writeup for discussion.*
 
 ---
 
