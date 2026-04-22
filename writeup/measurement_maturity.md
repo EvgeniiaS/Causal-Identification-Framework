@@ -71,7 +71,7 @@ There is also a more fundamental problem: no two years are perfectly comparable.
 
 Before/after and YoY fail because they use naive baselines. The natural next step is to model what revenue would have looked like without the campaign — building a counterfactual from the pre-period dynamics.
 
-BSTS (Bayesian Structural Time Series, implemented in Google's CausalImpact) does exactly this. It learns trend direction, weekly patterns, and annual seasonality from the pre-period, then projects forward. Prophet takes the same approach with a different model structure. Both are run on the full pre-period, which includes BF 2024.
+BSTS (Bayesian Structural Time Series, implemented in Google's CausalImpact) does exactly this. It learns trend direction, weekly patterns, and annual seasonality from the pre-period, then projects forward. Prophet (Meta/Facebook) takes the same approach with a different model structure. Both are run on the full pre-period, which includes BF 2024.
 
 Here is what is striking: the pre-BF counterfactual is very good. In October and November before BF, the BSTS counterfactual sits at approximately 1,808 USD/day — nearly identical to the actual 1,807 USD/day average for that period. The model correctly learned the trend-shifted baseline. It is not confused by the growth acceleration.
 
