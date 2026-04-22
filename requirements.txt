@@ -5,7 +5,6 @@ matplotlib>=3.7.0
 scipy>=1.11.0
 
 # Time series models
-prophet>=1.1.4          # Facebook/Meta Prophet for notebook 02
 rpy2>=3.5.9             # Python-R bridge for CausalImpact (notebooks 02, 03)
 
 # Jupyter
