@@ -43,6 +43,114 @@ This is not a Black Friday question. It is the standard campaign measurement que
 
 ---
 
+## Method Implementation
+
+### Level 2 — BSTS (CausalImpact)
+
+- Model: local level + weekly + annual seasonality
+- Trained on full pre-period (includes prior BF)
+- No explicit holiday/event term for Black Friday
+
+**Limitation**
+
+- Cannot model demand spikes that are not predictable from historical seasonal structure
+- Attributes unexplained spikes to treatment
+
+---
+
+### Level 3 — BSTS + SC (Regression-based Synthetic Control)
+
+Implemented as:
+
+> **BSTS with contemporaneous covariates (organic channels)**
+
+**Important**
+
+- This is **not classical Abadie-style Synthetic Control**
+- It is a **Bayesian regression with time-series structure**
+
+**Covariates (donor channels)**
+
+- Organic Search  
+- Direct  
+- Referral  
+- Social  
+
+**Excluded**
+
+- Email (campaign-driven; violates exogeneity)
+
+---
+
+## Key Assumptions
+
+1. **Donor exogeneity**  
+   Donor channels are not affected by Paid Search
+
+2. **No interference (SUTVA)**  
+   No spillover effects between treated and donor channels
+
+3. **Contemporaneous relationships**  
+   Donor signals align in time with Paid Search (no strong lag effects)
+
+4. **Stable relationships**  
+   Pre-period relationships hold in the post-period
+
+5. **Sufficient pre-period fit**  
+   Counterfactual must accurately track pre-period behavior
+
+6. **Donor independence**  
+   Multicollinearity may affect stability of estimates
+
+---
+
+## Validation Approach
+
+A causal estimate is only credible if it passes:
+
+- **Pre-period fit diagnostics**  
+  (MAPE + residual checks)
+
+- **Placebo test**  
+  Apply pseudo-intervention in pre-period
+
+- **Sensitivity analysis**  
+  Re-run excluding each donor
+
+---
+
+## Failure Modes
+
+The method may fail when:
+
+- Donors are contaminated by treatment
+- Channels are weakly correlated
+- Structural breaks occur
+- Lagged effects are ignored
+- Donors are highly collinear
+- Intervention timing is unclear
+
+---
+
+## Interpretation
+
+- Standard approaches (Before/After, YoY, BSTS) **overestimate impact by 60–120%** in this scenario  
+- BSTS fails because it cannot separate demand shocks from treatment  
+- Regression-based SC improves estimates by conditioning on observed demand signals  
+
+---
+
+## Relationship to Other Methods
+
+- **Experiments** → ground truth  
+- **BSTS + SC** → short-term causal estimate  
+- **MMM** → long-term budget allocation  
+
+These methods are complementary.
+
+---
+
+
 ## Dataset
 
 Single trend-shift scenario: flat through Jun 2025, then +0.4%/day from Jul 1, 2025. Nov 2025 pre-BF baseline is 61% above the prior year. This growth acceleration is what exposes the failure mode of every observational method.
