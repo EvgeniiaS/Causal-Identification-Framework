@@ -70,10 +70,14 @@ There is also a more fundamental problem: no two years are perfectly comparable.
 ## Level 2: Time Series Models
 
 Before/after and YoY fail because they use naive baselines. The natural next step is to model what revenue would have looked like without the campaign — building a counterfactual from the pre-period dynamics.
+
 BSTS (Bayesian Structural Time Series, implemented in Google's CausalImpact) does exactly this. It learns trend direction, weekly patterns, and annual seasonality from the pre-period, then projects forward. Prophet (Meta/Facebook) takes the same approach with a different model structure — decomposing trend, seasonality, and holidays via Fourier terms. Both are trained on the full pre-period, which includes BF 2024.
+
 The pre-BF period is training data — fitted values tracking the actuals is expected, not a signal of model quality. The real test is the BF window, which is out-of-sample. That is where the model has to forecast without having seen the data, and that is where it fails.
 During BF, the counterfactual sits at roughly 1,800 USD/day while actual revenue spikes to 4,241 USD/day. The model attributes almost the entire spike to the campaign — including the organic BF demand wave that lifted every channel.
+
 Why does the counterfactual not anticipate the spike? The BSTS seasonal component did partially learn from BF 2024 — it knows late November is elevated. But the weekly seasonal bin averages the BF days with surrounding days in the same bin, so the model learns a moderate seasonal lift rather than a sharp one. The counterfactual shows a muted BF bump, not the full spike magnitude. This is compounded by the fact that BF 2025 occurred at a 61% higher baseline than BF 2024 — even a correctly-learned prior year spike would under-forecast the current year level.
+
 But there is also a deeper problem, independent of the spike issue. Even if BSTS perfectly modeled the BF counterfactual, it would still be answering the wrong question. Its counterfactual represents "what would revenue have been without Black Friday" — meaning without the event itself. That is not the same as "what would revenue have been without the BF campaign decisions." The organic demand wave would still be there regardless. BSTS cannot separate the two.
 
 BSTS asks: *did revenue go up more than the model expected?* Still not the incrementality question.
