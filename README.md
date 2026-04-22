@@ -62,7 +62,7 @@ This is not a Black Friday question. It is the standard campaign measurement que
 
 Implemented as:
 
-> **BSTS with contemporaneous covariates (organic channels)**
+**BSTS with contemporaneous covariates (organic channels)**
 
 **Important**
 
