@@ -1,0 +1,17 @@
+k,v
+dataset,trend_shift
+trend_description,"Flat Jan 2024 - Jun 2025, then +0.4%/day from Jul 1, 2025"
+intervention,Black Friday 2025: Nov 27-Dec 2 (6 days)
+treated,Paid Search
+donors,"Organic Search, Direct, Referral, Social"
+excluded,Email (runs own BF campaigns)
+ps_full_pre_mean_usd,1243.43
+ps_imm_pre_mean_usd,1870.92
+ps_bf_mean_usd,4240.94
+ps_lift_observed_pct,126.7
+ps_lift_planted_pct,150.0
+organic_lift_obs_pct,55.0
+donor_lifts_obs_pct,"{'Organic Search': np.float64(72.9), 'Direct': np.float64(54.2), 'Referral': np.float64(34.6), 'Social': np.float64(58.5)}"
+true_increment_pct,71.6
+true_increment_usd,1340.07
+note,"Planted 150% PS lift -> observed 126.7% (noise + Q4 baseline effects). True increment = 126.7% PS - 55.0% organic = 71.6% = $1,340/day. BSTS/Prophet overstate because they extrapolate flat pre-period into +54% Nov baseline."
