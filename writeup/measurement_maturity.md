@@ -27,7 +27,7 @@ Every method in this case study exists for situations where randomization was no
 
 ## The Setup
 
-We use synthetic data with a known ground truth — two years of daily revenue across six channels, with a trend shift beginning July 1, 2025. Revenue is flat through mid-year, then grows at +0.4% per day. By November, the Paid Search baseline is 61% above what it was a year earlier.
+This case study uses synthetic data with a known ground truth — two years of daily revenue across six channels, with a trend shift beginning July 1, 2025. Revenue is flat through mid-year, then grows at +0.4% per day. By November, the Paid Search baseline is 61% above what it was a year earlier.
 
 This growth acceleration is not incidental. It is the stress test. Any company with double-digit year-over-year growth will face some version of this when measuring seasonal campaigns — and it is precisely what breaks the simpler methods.
 
