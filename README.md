@@ -38,7 +38,7 @@ This is not a Black Friday question. It is the standard campaign measurement que
 | 1.5 | YoY (BF 2025 vs BF 2024) | 2,187 USD/day | +63% |
 | 2 | BSTS (CausalImpact) | ~2,400 USD/day | +79% |
 | 3 | BSTS+SC v01 (23 months) | ~1,340 USD/day | ~0% |
-| 3 | BSTS+SC v02 (3 months) | ~1,340 USD/day | ~0% |
+| 3 | BSTS+SC v02 (7 months) | ~1,340 USD/day | ~0% |
 | 4 | Randomized holdout | — | Gold standard |
 
 ---
