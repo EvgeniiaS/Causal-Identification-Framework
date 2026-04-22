@@ -181,7 +181,7 @@ A point estimate alone is not an actionable causal estimate. The width of the cr
 
 | Method | Question answered | Overstatement |
 |---|---|---|
-| Before/After | Did revenue go up? | +120 to +124% |
+| Before/After | Did revenue go up? | +77% to +124% |
 | YoY | Did revenue go up more than last year? | +63% |
 | BSTS | Did revenue go up more than the model expected? | +79% |
 | BSTS+SC | Did PS go up more than organic demand explains? | ~0% |
