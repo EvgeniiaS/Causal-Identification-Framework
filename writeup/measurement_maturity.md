@@ -78,7 +78,7 @@ During BF, the counterfactual sits at roughly 1,800 USD/day while actual revenue
 
 Why does the counterfactual under-estimate the spike? The BSTS seasonal component partially learned from BF 2024 — it knows late November is elevated. But the weekly seasonal bin averages the BF days with surrounding days, so the model learns a moderate seasonal lift rather than a sharp one. This is compounded by the fact that BF 2025 occurred at a 61% higher baseline than BF 2024 — even a correctly-learned prior year spike would under-forecast the current year level.
 
-The result is something close to a trend-adjusted YoY — total BF performance vs a modeled baseline that accounts for growth. Better than raw YoY, but still not incrementality. Even if BSTS estimated the spike correctly, the organic demand wave would remain inside the gap, attributed to the campaign. Without donor channels that observed the organic demand directly, the model has no way to separate it from the campaign contribution.
+The gap contains two things the model cannot separate: the actual campaign contribution, and the portion of organic BF demand that grew between 2024 and 2025. The model learned organic BF demand at the 2024 level — whatever was not explained by its seasonal component gets projected forward. When 2025 organic demand is higher due to baseline growth, that excess lands in the gap alongside the campaign effect. Without donor channels observing organic demand directly at the 2025 level, there is no way to decompose the two.
 
 BSTS asks: *did revenue go up more than the model expected?* Still not the incrementality question.
 
