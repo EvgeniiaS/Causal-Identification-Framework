@@ -59,7 +59,9 @@ The reason is straightforward. The November pre-BF baseline grew 61% year-over-y
 
 YoY asks: *did revenue go up more than last year?* That is a better question than before/after. But it is still not the incrementality question.
 
-**When YoY works:** When year-over-year growth is flat or minimal, YoY gives a reasonable directional read. The overstatement scales directly with the growth rate — the faster the business is growing, the more misleading YoY becomes.
+There is also a more fundamental problem: no two years are perfectly comparable. BF 2024 and BF 2025 differ not just in baseline revenue but in everything that happened between them — competitor activity, macro conditions, consumer sentiment, product catalog changes, campaign budget and targeting decisions. YoY controls for calendar position but absorbs all of these factors silently into the delta. The number does not tell you how much of the difference is campaign contribution and how much is everything else that changed.
+
+**When YoY works:** When year-over-year growth is flat, competitive dynamics are stable, and nothing structural changed between the two periods. In practice that is a narrow set of conditions, and the overstatement is not auditable from the number itself — you cannot tell from a YoY delta alone how wrong it is.
 
 **Result: 2,187 USD/day vs 1,340 USD/day true — 1.6x overstatement.**
 
